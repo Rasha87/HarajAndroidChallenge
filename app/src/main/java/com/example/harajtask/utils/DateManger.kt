@@ -6,11 +6,16 @@ import java.util.*
 
 object DateManger
 {
-     fun getDate(time: Long): String? {
+     fun getTime(time: Long): String {
         val cal: Calendar = Calendar.getInstance(Locale.ENGLISH)
         cal.setTimeInMillis(time * 1000)
         return android.text.format.DateFormat.format("H",cal).toString()
 
     }
+    fun getDate(time: Long): String {
+        val cal: Calendar = Calendar.getInstance(Locale.ENGLISH)
+        cal.setTimeInMillis(time * 1000)
+        return android.text.format.DateFormat.format("yyyy/mm/dd HH:MM aa",cal).toString()
 
+    }
 }

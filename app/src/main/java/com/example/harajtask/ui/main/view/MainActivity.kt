@@ -1,5 +1,6 @@
 package com.example.harajtask.ui.main.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Gravity
@@ -15,6 +16,7 @@ import com.example.harajtask.R
 import com.example.harajtask.data.HarajData
 import com.example.harajtask.data.local.AssetHelperImpl
 import com.example.harajtask.ui.base.ViewModelFactory
+import com.example.harajtask.ui.main.OnClickAdapterItem
 import com.example.harajtask.ui.main.adapter.MainAdapter
 import com.example.harajtask.ui.main.viewmodel.MainViewModel
 import com.example.harajtask.utils.AssetManger.getJsonDataFromAsset
@@ -23,7 +25,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
 
-class MainActivity : AppCompatActivity()
+class MainActivity : AppCompatActivity() ,OnClickAdapterItem
 {
     private lateinit var viewModel: MainViewModel
     private lateinit var adapter: MainAdapter
@@ -31,14 +33,14 @@ class MainActivity : AppCompatActivity()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-       //LanguageHelper.arabicLanguage(this);
-        setupUI()
+         setupUI()
         setupViewModel()
         setupObserver()
     }
 
     private fun setupUI() {
         if (toolbar_main != null) {
+            share.visibility = View.GONE
             toolbar_main.layoutDirection = View.LAYOUT_DIRECTION_RTL
             val toggle: ActionBarDrawerToggle = object : ActionBarDrawerToggle(
                 this,
@@ -63,10 +65,9 @@ class MainActivity : AppCompatActivity()
             }
             drawer.addDrawerListener(toggle)
             toggle.syncState()
-          //  toolbar_main.setNavigationIcon(R.drawable.ic_menu_black_24dp)
-        }
+         }
          recyclerView.layoutManager = LinearLayoutManager(this)
-        adapter = MainAdapter(arrayListOf())
+        adapter = MainAdapter(arrayListOf(),this)
 
         recyclerView.adapter = adapter
 
@@ -107,6 +108,12 @@ class MainActivity : AppCompatActivity()
             this,
             ViewModelFactory(jsonFileString, AssetHelperImpl())
         ).get(MainViewModel::class.java)
+    }
+
+    override fun onItemClick(harjaData: HarajData) {
+        val intent = Intent(this, DetailsActivity::class.java)
+        intent.putExtra(DetailsActivity.HARAJDATA, harjaData)
+        startActivity(intent)
     }
 }
 
