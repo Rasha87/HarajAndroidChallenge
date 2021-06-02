@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">HarajTask</string>
+    <string name="since">Since  %s hours </string>
+
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+</resources>

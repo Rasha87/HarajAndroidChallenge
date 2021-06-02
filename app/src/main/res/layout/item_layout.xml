@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+     android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp"
+    android:padding="5dp"
+    android:background="@drawable/round_thumb">
+
+    <include
+        android:id="@+id/imgViewContainer"
+        layout="@layout/round_imageview"
+         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/txtViewTitle"
+        android:layout_width="0dp"
+         android:layout_height="wrap_content"
+         android:layout_margin="10dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgViewContainer"
+        app:layout_constraintTop_toTopOf="parent"
+         android:textColor="@color/title_color"
+        android:textAlignment="viewEnd"
+
+        />
+    <TextView
+        android:id="@+id/txtViewDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="viewEnd"
+        android:layout_margin="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/txtViewTitle"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewTitle"
+      />
+    <TextView
+        android:id="@+id/txtViewCommentCount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="viewEnd"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        android:drawablePadding="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/txtViewDate"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewDate"
+        app:drawableEndCompat="@drawable/ic_baseline_mode_comment_24" />
+    <TextView
+        android:id="@+id/txtViewLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:lines="1"
+        app:layout_constraintStart_toStartOf="@+id/imgViewContainer"
+        app:layout_constraintTop_toBottomOf="@+id/imgViewContainer"
+        app:layout_constraintEnd_toStartOf="@id/txtViewUser"
+        android:padding="5dp"
+        android:drawablePadding="5dp"
+        app:drawableEndCompat="@drawable/ic_location"
+        android:textAlignment="center"
+        />
+
+    <TextView
+        android:id="@+id/txtViewUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/imgViewContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="5dp"
+        android:drawablePadding="5dp"
+        app:drawableEndCompat="@drawable/ic_user"
+
+    />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
