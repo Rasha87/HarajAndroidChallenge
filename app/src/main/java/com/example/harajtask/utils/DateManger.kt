@@ -15,7 +15,7 @@ object DateManger
     fun getDate(time: Long): String {
         val cal: Calendar = Calendar.getInstance(Locale.ENGLISH)
         cal.setTimeInMillis(time * 1000)
-        return android.text.format.DateFormat.format("yyyy/mm/dd HH:MM aa",cal).toString()
+        return android.text.format.DateFormat.format("yyyy/MM/dd HH:MM aa",cal).toString()
 
     }
 }

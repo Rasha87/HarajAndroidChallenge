@@ -7,9 +7,7 @@
     android:layout_height="match_parent"
     android:id="@+id/drawer"
     android:background="@color/white_bg_color"
-    tools:openDrawer="right"
-    android:fitsSystemWindows="true"
-    tools:context=".ui.main.view.MainActivity">
+     tools:context=".ui.main.view.MainActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -42,7 +40,7 @@
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
+        android:layout_gravity="end"
          app:itemIconTint="@color/white_bg_color"
         app:itemTextColor="@color/colorAccent"
          >
